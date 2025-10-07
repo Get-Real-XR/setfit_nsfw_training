@@ -46,7 +46,7 @@ args = TrainingArguments(
     evaluation_strategy="epoch",  # Evaluate at the end of each epoch
     save_strategy="epoch",  # Save checkpoint at the end of each epoch
     load_best_model_at_end=True,  # Load best model when training finishes
-    metric_for_best_model="eval_accuracy"  # Use accuracy to determine best model
+    metric_for_best_model="eval_embedding_loss"  # Use accuracy to determine best model
 )
 
 # Preparing the trainer
