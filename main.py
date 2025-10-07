@@ -22,7 +22,7 @@ else:
     print("Using CPU - training will be slower")
 
 # Load the TSV file
-df = pd.read_csv("NSFW Training Dataset_1.csv", sep=",")
+df = pd.read_csv("expanded_dataset.csv", sep=",")
 
 # Initializing a new SetFit model with the actual categories
 model = SetFitModel.from_pretrained(
@@ -46,7 +46,7 @@ args = TrainingArguments(
     evaluation_strategy="epoch",  # Evaluate at the end of each epoch
     save_strategy="epoch",  # Save checkpoint at the end of each epoch
     load_best_model_at_end=True,  # Load best model when training finishes
-    metric_for_best_model="eval_embedding_loss"  # Use embedding loss to determine best model
+    metric_for_best_model="eval_accuracy"  # Use accuracy to determine best model
 )
 
 # Preparing the trainer
